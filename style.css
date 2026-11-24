@@ -356,3 +356,7 @@ h1 .line:nth-child(2) > span { animation-delay: 1.45s; }
   h1 .line > span { transform: none; }
   .preloader { display: none; }
 }
+
+/* compétences mises en avant (cyber & cloud) */
+.skill-hl { border-color: rgba(34,211,238,.35); background: linear-gradient(160deg, rgba(34,211,238,.08), rgba(167,139,250,.05)); }
+.skill-hl h4 { background: var(--grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
