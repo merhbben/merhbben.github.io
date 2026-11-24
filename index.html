@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mohamed Merhbene — Ingénieur logiciel Full-Stack & IA</title>
+  <meta name="description" content="Portfolio de Mohamed Merhbene, élève ingénieur à ESPRIT : développement full-stack, IA appliquée, mobile. Projets TuniNō (hackathon Kizuna Tunisie–Japon), AutoLoc, LA-PAIX, EnjoySweets." />
+  <meta property="og:title" content="Mohamed Merhbene — Full-Stack & IA" />
+  <meta property="og:description" content="Full-stack, IA appliquée et mobile. Découvrez mes projets." />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/187989494?v=4" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="preloader" id="preloader" aria-hidden="true"><span>MM<i>.</i></span><div class="bar"></div></div>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+  <canvas id="stars" aria-hidden="true"></canvas>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-glow" aria-hidden="true"></div>
+  <div class="blob b1" aria-hidden="true"></div>
+  <div class="blob b2" aria-hidden="true"></div>
+  <div class="spotlight" id="spotlight" aria-hidden="true"></div>
+  <div class="cursor-dot" id="cdot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cring" aria-hidden="true"></div>
+
+  <header class="nav" id="top">
+    <a href="#top" class="logo">MM<span>.</span></a>
+    <nav class="nav-links">
+      <a href="#about" data-i18n="nav.about">À propos</a>
+      <a href="#projects" data-i18n="nav.projects">Projets</a>
+      <a href="#skills" data-i18n="nav.skills">Compétences</a>
+      <a href="#journey" data-i18n="nav.journey">Parcours</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="lang" id="langBtn" aria-label="Changer de langue">EN</button>
+      <a class="btn btn-sm" href="cv.pdf" target="_blank" rel="noopener" data-i18n="nav.cv">Mon CV</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-text reveal">
+        <p class="badge"><span class="dot"></span><span data-i18n="hero.badge">Ouvert aux stages et opportunités</span></p>
+        <h1><span class="line"><span>Mohamed</span></span><span class="line"><span class="grad shimmer">Merhbene</span></span></h1>
+        <p class="role"><span data-i18n="hero.iam">Je construis</span> <span class="typed" id="typed"></span><span class="caret">|</span></p>
+        <p class="lead" data-i18n="hero.lead">Élève ingénieur à ESPRIT (Tunisie). Je conçois des applications complètes, du modèle d'IA jusqu'à l'interface, avec un objectif simple : des produits utiles qui tournent en production.</p>
+        <div class="cta">
+          <a class="btn" href="#projects" data-i18n="hero.cta1">Voir mes projets</a>
+          <a class="btn btn-ghost" href="https://github.com/merhbben" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.8 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"/></svg>
+            GitHub
+          </a>
+          <a class="btn btn-ghost" href="https://www.linkedin.com/in/merhbene-mohamed-a8b956332/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2ZM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2ZM7.1 20.5H3.5V9h3.6v11.5ZM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0Z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+      <div class="hero-card reveal">
+        <div class="avatar-wrap">
+          <img src="https://avatars.githubusercontent.com/u/187989494?v=4" alt="Mohamed Merhbene" class="avatar" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'avatar avatar-fallback',textContent:'MM'}))" />
+          <span class="ring"></span>
+        </div>
+        <div class="code-card">
+          <div class="code-top"><i></i><i></i><i></i><span>mohamed.ts</span></div>
+<pre><code><span class="k">const</span> <span class="v">mohamed</span> = {
+  <span class="p">school</span>: <span class="s">"ESPRIT, Tunisie"</span>,
+  <span class="p">focus</span>: [<span class="s">"Full-Stack"</span>, <span class="s">"IA"</span>, <span class="s">"Mobile"</span>],
+  <span class="p">stack</span>: [<span class="s">"React"</span>, <span class="s">"FastAPI"</span>,
+          <span class="s">"Spring"</span>, <span class="s">"Laravel"</span>, <span class="s">"Flutter"</span>],
+  <span class="p">langues</span>: [<span class="s">"العربية"</span>, <span class="s">"Français"</span>, <span class="s">"English"</span>],
+  <span class="p">available</span>: <span class="b">true</span>,
+};</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <!-- STATS -->
+    <section class="stats reveal">
+      <div><b data-count="4">0</b><span data-i18n="stats.projects">projets publiés</span></div>
+      <div><b data-count="5">0</b><span data-i18n="stats.stacks">écosystèmes maîtrisés</span></div>
+      <div><b>Top <span data-count="16">0</span></b><span data-i18n="stats.countries">sur 117 équipes au hackathon Tunisie–Japon</span></div>
+      <div><b data-count="24">0</b><span data-i18n="stats.gov">gouvernorats modélisés (TuniNō)</span></div>
+    </section>
+
+    <!-- MARQUEE -->
+    <div class="marquee" aria-hidden="true">
+      <div class="track">
+        <span>React</span><span>✦</span><span>TypeScript</span><span>✦</span><span>FastAPI</span><span>✦</span><span>Spring Boot</span><span>✦</span><span>Laravel</span><span>✦</span><span>Flutter</span><span>✦</span><span>Firebase</span><span>✦</span><span>OR-Tools</span><span>✦</span><span>XGBoost</span><span>✦</span><span>OpenCV</span><span>✦</span><span>PostGIS</span><span>✦</span><span>Docker</span><span>✦</span>
+        <span>React</span><span>✦</span><span>TypeScript</span><span>✦</span><span>FastAPI</span><span>✦</span><span>Spring Boot</span><span>✦</span><span>Laravel</span><span>✦</span><span>Flutter</span><span>✦</span><span>Firebase</span><span>✦</span><span>OR-Tools</span><span>✦</span><span>XGBoost</span><span>✦</span><span>OpenCV</span><span>✦</span><span>PostGIS</span><span>✦</span><span>Docker</span><span>✦</span>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <h2 class="title reveal"><span class="num">01</span><span data-i18n="about.title">À propos</span></h2>
+      <div class="about reveal">
+        <p data-i18n="about.p1">Je suis élève ingénieur à <b>ESPRIT</b>. J'aime les projets où le code rencontre un vrai problème : planifier l'agriculture d'un pays, gérer la flotte d'une agence de location, contrôler les stocks d'un restaurant ou faire tourner une pâtisserie.</p>
+        <p data-i18n="about.p2">Je travaille sur toute la chaîne : modélisation des données, API, algorithmes d'optimisation et modèles de prévision, interface responsive et bilingue, puis déploiement avec Docker et CI/CD.</p>
+        <ul class="values">
+          <li><span>◆</span><span data-i18n="about.v1">Des données traçables : chaque chiffre a sa source</span></li>
+          <li><span>◆</span><span data-i18n="about.v2">Architecture propre en couches, code testé</span></li>
+          <li><span>◆</span><span data-i18n="about.v3">Pensé pour l'utilisateur réel : mobile, RTL, multilingue</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <h2 class="title reveal"><span class="num">02</span><span data-i18n="projects.title">Projets</span></h2>
+
+      <article class="feature reveal">
+        <div class="feature-head">
+          <span class="tag-hot" data-i18n="p1.tag">Hackathon Kizuna · Tunisie 🇹🇳 × Japon 🇯🇵</span>
+          <span class="tag-award">🏆 <span data-i18n="p1.award">Top 16 sur 117 équipes</span></span>
+          <h3>TuniNō <span class="jp">チュニ農</span></h3>
+          <p class="tagline" data-i18n="p1.tagline">Deux nations, une vision : l'agriculture durable.</p>
+        </div>
+        <div class="feature-body">
+          <div>
+            <p data-i18n="p1.desc">Plateforme de planification agricole inspirée de WAGRI (Japon), pour deux publics. Le <b>Ministère de l'Agriculture</b> suit le bilan national, planifie la production par culture, gouvernorat et saison, et simule des scénarios. L'<b>agriculteur</b> importe ou dessine son terrain, puis le moteur <b>AgroBrain</b> le découpe en parcelles optimisées.</p>
+            <ul class="bullets">
+              <li data-i18n="p1.b1">Lecture de plans par vision par ordinateur (OpenCV, OCR ONNX)</li>
+              <li data-i18n="p1.b2">Optimisation des cultures avec OR-Tools, irrigation FAO-56 planifiée par CP-SAT</li>
+              <li data-i18n="p1.b3">Prévisions XGBoost / LightGBM avec backtest, données FAOSTAT, World Bank, NASA POWER</li>
+              <li data-i18n="p1.b4">Dimensionnement solaire et batterie, chambre froide de contre-saison simulée heure par heure</li>
+              <li data-i18n="p1.b5">Interface bilingue Français / derja tunisienne (RTL), PostGIS, Docker</li>
+            </ul>
+            <div class="chips">
+              <span>Python</span><span>FastAPI</span><span>React 18</span><span>TypeScript</span><span>Tailwind</span><span>Leaflet</span><span>OR-Tools</span><span>XGBoost</span><span>OpenCV</span><span>PostGIS</span><span>Docker</span>
+            </div>
+            <div class="links">
+              <a href="https://github.com/merhbben/hackathon-kizuna" target="_blank" rel="noopener" class="link" data-i18n="common.code">Code source →</a>
+            </div>
+          </div>
+          <div class="flow" aria-hidden="true">
+            <div class="flow-step"><b>1</b><span data-i18n="flow.1">Terrain</span></div>
+            <div class="flow-arrow"></div>
+            <div class="flow-step"><b>2</b><span data-i18n="flow.2">Climat & sol</span></div>
+            <div class="flow-arrow"></div>
+            <div class="flow-step glow"><b>3</b><span>AgroBrain</span></div>
+            <div class="flow-arrow"></div>
+            <div class="flow-step"><b>4</b><span data-i18n="flow.4">Plan optimisé</span></div>
+            <div class="parcels">
+              <i style="--c:#22c55e">A</i><i style="--c:#eab308">B</i><i style="--c:#06b6d4">C</i><i style="--c:#f97316">D</i>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <div class="grid">
+        <article class="card reveal">
+          <div class="card-icon">🍰</div>
+          <h3>EnjoySweets</h3>
+          <p data-i18n="p2.desc">Application de gestion de pâtisserie en Flutter, sécurisée avec Firebase Auth et Firestore. Elle est en production sur Firebase Hosting, avec CI/CD GitHub Actions et une stratégie de cache maîtrisée.</p>
+          <div class="chips"><span>Flutter</span><span>Dart</span><span>Firebase</span><span>Firestore</span><span>GitHub Actions</span></div>
+          <div class="links">
+            <a href="https://github.com/merhbben/EnjoySweets" target="_blank" rel="noopener" class="link" data-i18n="common.code">Code source →</a>
+            <a href="https://enjoy-34564.web.app" target="_blank" rel="noopener" class="link" data-i18n="common.live">Démo live ↗</a>
+          </div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon">📊</div>
+          <h3>LA-PAIX</h3>
+          <p data-i18n="p3.desc">Application Laravel de contrôle des consommations pour restaurants, hôtels et bars : fiches techniques versionnées, stocks et inventaires, calcul des écarts théorique / réel, tableaux de bord KPI, audit et rôles.</p>
+          <div class="chips"><span>PHP 8.4</span><span>Laravel 13</span><span>MySQL</span><span>Bootstrap</span><span>Chart.js</span><span>PHPUnit</span></div>
+          <div class="links"><a href="https://github.com/merhbben/LA-PAIX" target="_blank" rel="noopener" class="link" data-i18n="common.code">Code source →</a></div>
+        </article>
+
+        <article class="card reveal">
+          <div class="card-icon">🚗</div>
+          <h3>AutoLoc</h3>
+          <p data-i18n="p4.desc">Backend de location de véhicules multi-agences : réservations, contrats, paiements, maintenance. Architecture en couches Controller → Service → Repository, API REST testées avec Postman.</p>
+          <div class="chips"><span>Java 17</span><span>Spring Boot</span><span>JPA / Hibernate</span><span>MySQL</span><span>Maven</span><span>SonarQube</span></div>
+          <div class="links"><a href="https://github.com/merhbben/autoloc" target="_blank" rel="noopener" class="link" data-i18n="common.code">Code source →</a></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="section">
+      <h2 class="title reveal"><span class="num">03</span><span data-i18n="skills.title">Compétences</span></h2>
+      <div class="skills">
+        <div class="skill reveal">
+          <h4 data-i18n="skills.front">Frontend</h4>
+          <div class="chips"><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Vite</span><span>Recharts</span><span>Leaflet</span><span>i18n / RTL</span><span>Blade</span></div>
+        </div>
+        <div class="skill reveal">
+          <h4 data-i18n="skills.back">Backend</h4>
+          <div class="chips"><span>Python / FastAPI</span><span>Java / Spring Boot</span><span>PHP / Laravel</span><span>SQLAlchemy</span><span>JWT</span><span>REST</span></div>
+        </div>
+        <div class="skill reveal">
+          <h4 data-i18n="skills.ai">IA & Data</h4>
+          <div class="chips"><span>scikit-learn</span><span>XGBoost</span><span>LightGBM</span><span>OR-Tools</span><span>OpenCV</span><span>Pandas</span><span>GeoPandas</span></div>
+        </div>
+        <div class="skill reveal">
+          <h4 data-i18n="skills.mobile">Mobile</h4>
+          <div class="chips"><span>Flutter</span><span>Dart</span><span>Firebase</span><span>Firestore</span></div>
+        </div>
+        <div class="skill reveal">
+          <h4 data-i18n="skills.db">Bases de données</h4>
+          <div class="chips"><span>PostgreSQL / PostGIS</span><span>MySQL</span><span>SQLite</span><span>Firestore</span></div>
+        </div>
+        <div class="skill reveal">
+          <h4 data-i18n="skills.devops">DevOps & outils</h4>
+          <div class="chips"><span>Docker</span><span>GitHub Actions</span><span>Git</span><span>Alembic</span><span>Pytest</span><span>Postman</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOURNEY -->
+    <section id="journey" class="section">
+      <h2 class="title reveal"><span class="num">04</span><span data-i18n="journey.title">Parcours</span></h2>
+      <ol class="timeline">
+        <li class="reveal">
+          <time>2026</time>
+          <h4 data-i18n="j1.t">Hackathon Kizuna (絆) Tunisie × Japon : Top 16 / 117 équipes</h4>
+          <p data-i18n="j1.d">Classé dans le Top 16 parmi 117 équipes avec TuniNō, une plateforme d'agriculture durable pour le ministère et les agriculteurs.</p>
+        </li>
+        <li class="reveal">
+          <time>2026</time>
+          <h4 data-i18n="j2.t">Projets académiques et professionnels</h4>
+          <p data-i18n="j2.d">AutoLoc (Spring Boot, module ASI), LA-PAIX (Laravel), EnjoySweets (Flutter, déployé en production).</p>
+        </li>
+        <li class="reveal">
+          <time data-i18n="j3.time">En cours</time>
+          <h4 data-i18n="j3.t">Cycle ingénieur, ESPRIT</h4>
+          <p data-i18n="j3.d">École Supérieure Privée d'Ingénierie et de Technologies, Tunis.</p>
+        </li>
+        <!-- TODO : ajoute ici tes expériences / stages / certifications depuis LinkedIn -->
+      </ol>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section contact reveal">
+      <h2 data-i18n="contact.title">Travaillons ensemble</h2>
+      <p data-i18n="contact.text">Je recherche un stage ou un premier poste en développement full-stack ou en IA appliquée. Parlons de votre projet.</p>
+      <div class="cta center">
+        <!-- TODO : remplace par ton adresse e-mail -->
+        <a class="btn" href="mailto:TON_EMAIL@exemple.com" data-i18n="contact.mail">M'écrire un e-mail</a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/merhbene-mohamed-a8b956332/" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-ghost" href="https://github.com/merhbben" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Mohamed Merhbene · <span data-i18n="footer">Fait avec soin, en Tunisie.</span></p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
