@@ -5,7 +5,10 @@ const EN = {
   "hero.iam": "I build",
   "hero.lead": "Cybersecurity & Cloud Engineering student at ESPRIT (Tunisia). I build secure, cloud-ready applications, from the backend and the AI model to deployment, with one goal: useful products that run safely in production.",
   "hero.cta1": "See my projects",
-  "stats.projects": "published projects", "stats.stacks": "tech ecosystems", "stats.countries": "out of 117 teams at the Tunisia–Japan hackathon",
+  "stats.projects": "published projects", "stats.stacks": "Cisco certifications", "nav.certs": "Certifications", "certs.title": "Certifications",
+  "c1.d": "Switch and router configuration, IPv4 / IPv6 addressing, OSI model, securing and troubleshooting a small network.", "c1.date": "November 2026",
+  "c2.d": "Common threats, attacks and vulnerabilities; protecting people and organisations.", "c2.date": "September 2026",
+  "c3.d": "Enterprise AI adoption: pilot project, ROI, responsible AI, data classification and governance.", "c3.date": "November 2026", "stats.countries": "out of 117 teams at the Tunisia–Japan hackathon",
   "p1.award": "Top 16 out of 117 teams", "stats.gov": "governorates modelled (TuniNō)",
   "about.title": "About",
   "about.p1": "I'm an engineering student in <b>Cybersecurity & Cloud Engineering</b> at <b>ESPRIT</b>. I love projects where code meets a real problem: planning a country's agriculture, running a rental agency's fleet, controlling a restaurant's stock, or powering a pastry shop.",
@@ -223,3 +226,13 @@ if (!reduce) {
 // Après l'apparition, transitions rapides pour le tilt
 document.querySelectorAll(".tilt").forEach((el) =>
   el.addEventListener("transitionend", (e) => { if (e.propertyName === "opacity" && el.classList.contains("in")) el.classList.add("settled"); }));
+
+// Certifications : cascade + agrandissement
+document.querySelectorAll(".certs .reveal").forEach((el, i) => el.style.setProperty("--d", i * 0.12 + "s"));
+const lb = document.getElementById("lightbox"), lbImg = lb.querySelector("img");
+document.querySelectorAll(".cert").forEach((c) => c.addEventListener("click", () => {
+  lbImg.src = c.dataset.full; lbImg.alt = c.querySelector("h4").textContent; lb.hidden = false;
+}));
+const closeLb = () => (lb.hidden = true);
+lb.addEventListener("click", closeLb);
+addEventListener("keydown", (e) => e.key === "Escape" && closeLb());

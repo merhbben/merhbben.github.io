@@ -7,7 +7,7 @@
   <meta name="description" content="Portfolio de Mohamed Merhbene, élève ingénieur en Cybersécurité & Cloud Engineering à ESPRIT : applications sécurisées, cloud, DevOps, full-stack et IA appliquée. Projets TuniNō (hackathon Kizuna Tunisie–Japon), AutoLoc, LA-PAIX, EnjoySweets." />
   <meta property="og:title" content="Mohamed Merhbene — Cybersécurité & Cloud" />
   <meta property="og:description" content="Élève ingénieur en Cybersécurité & Cloud Engineering. Découvrez mes projets." />
-  <meta property="og:image" content="https://avatars.githubusercontent.com/u/187989494?v=4" />
+  <meta property="og:image" content="https://merhbben.github.io/assets/photo.jpg" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -31,6 +31,7 @@
       <a href="#about" data-i18n="nav.about">À propos</a>
       <a href="#projects" data-i18n="nav.projects">Projets</a>
       <a href="#skills" data-i18n="nav.skills">Compétences</a>
+      <a href="#certs" data-i18n="nav.certs">Certifications</a>
       <a href="#journey" data-i18n="nav.journey">Parcours</a>
       <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
@@ -62,7 +63,7 @@
       </div>
       <div class="hero-card reveal">
         <div class="avatar-wrap">
-          <img src="https://avatars.githubusercontent.com/u/187989494?v=4" alt="Mohamed Merhbene" class="avatar" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'avatar avatar-fallback',textContent:'MM'}))" />
+          <img src="assets/photo.jpg" alt="Mohamed Merhbene" class="avatar" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'avatar avatar-fallback',textContent:'MM'}))" />
           <span class="ring"></span>
         </div>
         <div class="code-card">
@@ -83,7 +84,7 @@
     <!-- STATS -->
     <section class="stats reveal">
       <div><b data-count="4">0</b><span data-i18n="stats.projects">projets publiés</span></div>
-      <div><b data-count="5">0</b><span data-i18n="stats.stacks">écosystèmes maîtrisés</span></div>
+      <div><b data-count="3">0</b><span data-i18n="stats.stacks">certifications Cisco</span></div>
       <div><b>Top <span data-count="16">0</span></b><span data-i18n="stats.countries">sur 117 équipes au hackathon Tunisie–Japon</span></div>
       <div><b data-count="24">0</b><span data-i18n="stats.gov">gouvernorats modélisés (TuniNō)</span></div>
     </section>
@@ -223,9 +224,45 @@
       </div>
     </section>
 
+    <!-- CERTIFICATIONS -->
+    <section id="certs" class="section">
+      <h2 class="title reveal"><span class="num">04</span><span data-i18n="certs.title">Certifications</span></h2>
+      <div class="certs">
+        <article class="cert reveal" data-full="assets/cert-ccna-itn.jpg">
+          <div class="cert-img"><img src="assets/cert-ccna-itn.jpg" alt="Certificat Cisco CCNA: Introduction to Networks" loading="lazy" /><span class="zoom-hint">🔍</span></div>
+          <div class="cert-body">
+            <span class="issuer">Cisco Networking Academy</span>
+            <h4>CCNA: Introduction to Networks</h4>
+            <p data-i18n="c1.d">Configuration de switchs et routeurs, adressage IPv4 / IPv6, modèle OSI, sécurisation et dépannage d'un petit réseau.</p>
+            <time data-i18n="c1.date">Novembre 2026</time>
+          </div>
+        </article>
+        <article class="cert reveal" data-full="assets/cert-intro-cybersecurity.jpg">
+          <div class="cert-img"><img src="assets/cert-intro-cybersecurity.jpg" alt="Certificat Cisco Introduction to Cybersecurity" loading="lazy" /><span class="zoom-hint">🔍</span></div>
+          <div class="cert-body">
+            <span class="issuer">Cisco Networking Academy</span>
+            <h4>Introduction to Cybersecurity</h4>
+            <p data-i18n="c2.d">Menaces, attaques et vulnérabilités courantes, protection des personnes et des organisations.</p>
+            <time data-i18n="c2.date">Septembre 2026</time>
+          </div>
+        </article>
+        <article class="cert reveal" data-full="assets/cert-ai-power-user.jpg">
+          <div class="cert-img"><img src="assets/cert-ai-power-user.jpg" alt="Certificat Cisco AI Power User Launchpad" loading="lazy" /><span class="zoom-hint">🔍</span></div>
+          <div class="cert-body">
+            <span class="issuer">Cisco Networking Academy</span>
+            <h4>AI Power User Launchpad</h4>
+            <p data-i18n="c3.d">Adoption de l'IA en entreprise : projet pilote, ROI, IA responsable, classification des données et gouvernance.</p>
+            <time data-i18n="c3.date">Novembre 2026</time>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <div class="lightbox" id="lightbox" hidden><img alt="" /><button aria-label="Fermer">✕</button></div>
+
     <!-- JOURNEY -->
     <section id="journey" class="section">
-      <h2 class="title reveal"><span class="num">04</span><span data-i18n="journey.title">Parcours</span></h2>
+      <h2 class="title reveal"><span class="num">05</span><span data-i18n="journey.title">Parcours</span></h2>
       <ol class="timeline">
         <li class="reveal">
           <time>2026</time>
@@ -242,7 +279,7 @@
           <h4 data-i18n="j3.t">Cycle ingénieur, Cybersécurité & Cloud Engineering, ESPRIT</h4>
           <p data-i18n="j3.d">École Supérieure Privée d'Ingénierie et de Technologies, Tunis.</p>
         </li>
-        <!-- TODO : ajoute ici tes expériences / stages / certifications depuis LinkedIn -->
+        <!-- TODO : ajoute ici tes expériences / stages depuis LinkedIn -->
       </ol>
     </section>
 
