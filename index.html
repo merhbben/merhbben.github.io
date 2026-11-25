@@ -2,303 +2,414 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <title>Mohamed Merhbene — Cybersécurité & Cloud Engineering</title>
-  <meta name="description" content="Portfolio de Mohamed Merhbene, élève ingénieur en Cybersécurité & Cloud Engineering à ESPRIT : applications sécurisées, cloud, DevOps, full-stack et IA appliquée. Projets TuniNō (hackathon Kizuna Tunisie–Japon), AutoLoc, LA-PAIX, EnjoySweets." />
+  <meta name="description" content="Portfolio de Mohamed Merhbene, élève ingénieur en Cybersécurité & Cloud Engineering à ESPRIT : applications sécurisées, réseaux, cloud, DevOps, full-stack et IA appliquée." />
+  <meta name="theme-color" content="#05070c" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://merhbben.github.io/" />
   <meta property="og:title" content="Mohamed Merhbene — Cybersécurité & Cloud" />
-  <meta property="og:description" content="Élève ingénieur en Cybersécurité & Cloud Engineering. Découvrez mes projets." />
+  <meta property="og:description" content="Élève ingénieur en Cybersécurité & Cloud Engineering · Top 16 / 117 au hackathon Kizuna Tunisie × Japon · 3 certifications Cisco." />
   <meta property="og:image" content="https://merhbben.github.io/assets/photo.jpg" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2305070c'/%3E%3Ctext x='50%25' y='56%25' text-anchor='middle' dominant-baseline='middle' font-family='monospace' font-weight='700' font-size='28' fill='%232de2b4'%3EMM%3C/text%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="preloader" id="preloader" aria-hidden="true"><span>MM<i>.</i></span><div class="bar"></div></div>
+  <!-- Séquence de démarrage -->
+  <div class="boot" id="boot" aria-hidden="true"><pre id="bootLog"></pre></div>
+
   <div class="progress" id="progress" aria-hidden="true"></div>
-  <canvas id="stars" aria-hidden="true"></canvas>
-  <div class="bg-grid" aria-hidden="true"></div>
-  <div class="bg-glow" aria-hidden="true"></div>
-  <div class="blob b1" aria-hidden="true"></div>
-  <div class="blob b2" aria-hidden="true"></div>
-  <div class="spotlight" id="spotlight" aria-hidden="true"></div>
+  <canvas id="net" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
+  <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div class="spotlight" aria-hidden="true"></div>
   <div class="cursor-dot" id="cdot" aria-hidden="true"></div>
   <div class="cursor-ring" id="cring" aria-hidden="true"></div>
 
-  <header class="nav" id="top">
-    <a href="#top" class="logo">MM<span>.</span></a>
-    <nav class="nav-links">
-      <a href="#about" data-i18n="nav.about">À propos</a>
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <a href="#top" class="logo" aria-label="Accueil"><span class="logo-mark">MM</span><span class="logo-txt">merhbene<em>_</em></span></a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#profil" data-i18n="nav.profile">Profil</a>
       <a href="#projects" data-i18n="nav.projects">Projets</a>
       <a href="#skills" data-i18n="nav.skills">Compétences</a>
       <a href="#certs" data-i18n="nav.certs">Certifications</a>
       <a href="#journey" data-i18n="nav.journey">Parcours</a>
-      <a href="#contact" data-i18n="nav.contact">Contact</a>
+      <span class="nav-pill" id="navPill" aria-hidden="true"></span>
     </nav>
     <div class="nav-actions">
+      <button class="kbtn" id="cmdkBtn" aria-label="Ouvrir la palette de commandes"><span class="kbtn-txt" data-i18n="nav.search">Rechercher</span><kbd>⌘K</kbd><span class="kbtn-burger" aria-hidden="true">☰</span></button>
       <button class="lang" id="langBtn" aria-label="Changer de langue">EN</button>
-      <a class="btn btn-sm" href="cv.pdf" target="_blank" rel="noopener" data-i18n="nav.cv">Mon CV</a>
+      <a class="btn btn-sm" href="#contact" data-i18n="nav.contact">Contact</a>
     </div>
   </header>
 
   <main>
     <!-- HERO -->
-    <section class="hero">
-      <div class="hero-text reveal">
-        <p class="badge"><span class="dot"></span><span data-i18n="hero.badge">Ouvert aux stages et opportunités</span></p>
-        <h1><span class="line"><span>Mohamed</span></span><span class="line"><span class="grad shimmer">Merhbene</span></span></h1>
-        <p class="role"><span data-i18n="hero.iam">Je construis</span> <span class="typed" id="typed"></span><span class="caret">|</span></p>
-        <p class="lead" data-i18n="hero.lead">Élève ingénieur en Cybersécurité & Cloud Engineering à ESPRIT (Tunisie). Je construis des applications sécurisées et prêtes pour le cloud, du backend et du modèle d'IA jusqu'au déploiement, avec un objectif : des produits utiles qui tournent en production, en toute sécurité.</p>
+    <section class="hero" id="top">
+      <div class="hero-left">
+        <p class="status"><span class="dot"></span><span data-i18n="hero.status">Disponible · stages & opportunités</span></p>
+        <p class="kicker mono"><span class="c-mint">//</span> <span data-i18n="hero.kicker">Cybersécurité & Cloud Engineering · ESPRIT</span></p>
+        <h1 class="name">
+          <span class="decrypt" data-text="Mohamed">Mohamed</span>
+          <span class="decrypt grad" data-text="Merhbene">Merhbene</span>
+        </h1>
+        <p class="lead" data-i18n="hero.lead">Je construis des applications <b>sécurisées</b> et <b>prêtes pour le cloud</b> : du réseau au déploiement, en passant par l'API et le modèle d'IA.</p>
         <div class="cta">
-          <a class="btn" href="#projects" data-i18n="hero.cta1">Voir mes projets</a>
-          <a class="btn btn-ghost" href="https://github.com/merhbben" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.8 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"/></svg>
-            GitHub
-          </a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/merhbene-mohamed-a8b956332/" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2ZM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2ZM7.1 20.5H3.5V9h3.6v11.5ZM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0Z"/></svg>
+          <a class="btn magnet" href="#projects"><span data-i18n="hero.cta1">Voir mes projets</span> <span aria-hidden="true">→</span></a>
+          <a class="btn btn-ghost magnet" href="https://www.linkedin.com/in/merhbene-mohamed-a8b956332/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2ZM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2ZM7.1 20.5H3.5V9h3.6v11.5ZM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0Z"/></svg>
             LinkedIn
           </a>
+          <a class="btn btn-ghost magnet" href="https://github.com/merhbben" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor" aria-hidden="true"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.9 1.2 1.9 1.2 1.1 1.8 2.9 1.3 3.6 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.7.3 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5Z"/></svg>
+            GitHub
+          </a>
+          <a class="btn btn-ghost magnet" href="cv.pdf" target="_blank" rel="noopener" data-cv hidden data-i18n="hero.cv">Mon CV</a>
         </div>
+        <ul class="hero-meta">
+          <li><b>Top 16</b><span data-i18n="meta.hack">/ 117 équipes · hackathon</span></li>
+          <li><b data-count="3">0</b><span data-i18n="meta.certs">certifications Cisco</span></li>
+          <li><b data-count="4">0</b><span data-i18n="meta.projects">projets en ligne</span></li>
+        </ul>
       </div>
-      <div class="hero-card reveal">
-        <div class="avatar-wrap">
-          <img src="assets/photo.jpg" alt="Mohamed Merhbene" class="avatar" onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'avatar avatar-fallback',textContent:'MM'}))" />
-          <span class="ring"></span>
-        </div>
-        <div class="code-card">
-          <div class="code-top"><i></i><i></i><i></i><span>mohamed.ts</span></div>
-<pre><code><span class="k">const</span> <span class="v">mohamed</span> = {
-  <span class="p">school</span>: <span class="s">"ESPRIT, Tunisie"</span>,
-  <span class="p">track</span>: <span class="s">"Cybersécurité & Cloud"</span>,
-  <span class="p">focus</span>: [<span class="s">"Sécurité"</span>, <span class="s">"Cloud"</span>, <span class="s">"Full-Stack"</span>],
-  <span class="p">stack</span>: [<span class="s">"React"</span>, <span class="s">"FastAPI"</span>,
-          <span class="s">"Spring"</span>, <span class="s">"Laravel"</span>, <span class="s">"Flutter"</span>],
-  <span class="p">langues</span>: [<span class="s">"العربية"</span>, <span class="s">"Français"</span>, <span class="s">"English"</span>],
-  <span class="p">available</span>: <span class="b">true</span>,
-};</code></pre>
-        </div>
-      </div>
-    </section>
 
-    <!-- STATS -->
-    <section class="stats reveal">
-      <div><b data-count="4">0</b><span data-i18n="stats.projects">projets publiés</span></div>
-      <div><b data-count="3">0</b><span data-i18n="stats.stacks">certifications Cisco</span></div>
-      <div><b>Top <span data-count="16">0</span></b><span data-i18n="stats.countries">sur 117 équipes au hackathon Tunisie–Japon</span></div>
-      <div><b data-count="24">0</b><span data-i18n="stats.gov">gouvernorats modélisés (TuniNō)</span></div>
+      <div class="hero-right">
+        <div class="term glow" id="term">
+          <div class="term-bar">
+            <i></i><i></i><i></i>
+            <span class="term-title mono">visiteur@merhbene: ~</span>
+            <span class="term-hint mono" data-i18n="term.hint">interactif · tapez help</span>
+          </div>
+          <div class="term-body" id="termBody">
+            <div id="termOut"></div>
+            <form id="termForm" class="term-line" autocomplete="off">
+              <span class="ps mono">➜ <b>~</b></span>
+              <input id="termIn" class="mono" spellcheck="false" aria-label="Terminal : tapez une commande" />
+            </form>
+          </div>
+        </div>
+        <div class="orbit" aria-hidden="true">
+          <span class="o1">🔐</span><span class="o2">☁️</span><span class="o3">🛰️</span>
+        </div>
+      </div>
+
+      <a class="scroll-hint" href="#profil" aria-label="Défiler"><span></span></a>
     </section>
 
     <!-- MARQUEE -->
     <div class="marquee" aria-hidden="true">
       <div class="track">
-        <span>React</span><span>✦</span><span>TypeScript</span><span>✦</span><span>FastAPI</span><span>✦</span><span>Spring Boot</span><span>✦</span><span>Laravel</span><span>✦</span><span>Flutter</span><span>✦</span><span>Firebase</span><span>✦</span><span>OR-Tools</span><span>✦</span><span>XGBoost</span><span>✦</span><span>OpenCV</span><span>✦</span><span>PostGIS</span><span>✦</span><span>Docker</span><span>✦</span>
-        <span>React</span><span>✦</span><span>TypeScript</span><span>✦</span><span>FastAPI</span><span>✦</span><span>Spring Boot</span><span>✦</span><span>Laravel</span><span>✦</span><span>Flutter</span><span>✦</span><span>Firebase</span><span>✦</span><span>OR-Tools</span><span>✦</span><span>XGBoost</span><span>✦</span><span>OpenCV</span><span>✦</span><span>PostGIS</span><span>✦</span><span>Docker</span><span>✦</span>
+        <span>Cybersécurité</span><i>◆</i><span>Cloud</span><i>◆</i><span>Cisco IOS</span><i>◆</i><span>Docker</span><i>◆</i><span>CI/CD</span><i>◆</i><span>FastAPI</span><i>◆</i><span>Spring Boot</span><i>◆</i><span>Laravel</span><i>◆</i><span>React</span><i>◆</i><span>Flutter</span><i>◆</i><span>PostGIS</span><i>◆</i><span>OR-Tools</span><i>◆</i>
+        <span>Cybersécurité</span><i>◆</i><span>Cloud</span><i>◆</i><span>Cisco IOS</span><i>◆</i><span>Docker</span><i>◆</i><span>CI/CD</span><i>◆</i><span>FastAPI</span><i>◆</i><span>Spring Boot</span><i>◆</i><span>Laravel</span><i>◆</i><span>React</span><i>◆</i><span>Flutter</span><i>◆</i><span>PostGIS</span><i>◆</i><span>OR-Tools</span><i>◆</i>
       </div>
     </div>
 
-    <!-- ABOUT -->
-    <section id="about" class="section">
-      <h2 class="title reveal"><span class="num">01</span><span data-i18n="about.title">À propos</span></h2>
-      <div class="about reveal">
-        <p data-i18n="about.p1">Je suis élève ingénieur en <b>Cybersécurité & Cloud Engineering</b> à <b>ESPRIT</b>. J'aime les projets où le code rencontre un vrai problème : planifier l'agriculture d'un pays, gérer la flotte d'une agence de location, contrôler les stocks d'un restaurant ou faire tourner une pâtisserie.</p>
-        <p data-i18n="about.p2">Je travaille sur toute la chaîne, avec la sécurité intégrée dès le départ : authentification et rôles, modélisation des données, API, modèles d'optimisation et de prévision, puis déploiement conteneurisé dans le cloud avec Docker et CI/CD.</p>
-        <ul class="values">
-          <li><span>◆</span><span data-i18n="about.v0">Sécurité dès la conception : authentification, rôles, audit, secrets hors du code</span></li>
-          <li><span>◆</span><span data-i18n="about.v1">Des données traçables : chaque chiffre a sa source</span></li>
-          <li><span>◆</span><span data-i18n="about.v2">Architecture propre en couches, code testé</span></li>
-          <li><span>◆</span><span data-i18n="about.v3">Pensé pour l'utilisateur réel : mobile, RTL, multilingue</span></li>
-        </ul>
+    <!-- PROFIL (BENTO) -->
+    <section id="profil" class="section">
+      <header class="sec-head reveal"><span class="sec-num mono">01</span><h2 data-i18n="profil.title">Profil</h2><span class="sec-line"></span></header>
+      <div class="bento">
+        <div class="tile b-photo glow reveal">
+          <img src="assets/photo.jpg" alt="Mohamed Merhbene" loading="eager" />
+          <span class="hud tl"></span><span class="hud tr"></span><span class="hud bl"></span><span class="hud br"></span>
+          <span class="scanline"></span>
+          <span class="photo-tag mono">ID · <b>VERIFIED</b> ✓</span>
+        </div>
+
+        <div class="tile b-about glow reveal">
+          <p class="label mono">~/about.md</p>
+          <p class="about-big" data-i18n="about.p1">Élève ingénieur en <b>Cybersécurité & Cloud Engineering</b> à <b>ESPRIT</b>, j'aime les projets où le code rencontre un vrai problème.</p>
+          <p data-i18n="about.p2">Planifier l'agriculture d'un pays, gérer la flotte d'une agence de location, contrôler les stocks d'un restaurant : je travaille sur toute la chaîne, avec la sécurité intégrée dès le départ, jusqu'au déploiement conteneurisé dans le cloud.</p>
+          <ul class="values">
+            <li><span class="c-mint">▸</span><span data-i18n="about.v0">Sécurité dès la conception : authentification, rôles, audit, secrets hors du code</span></li>
+            <li><span class="c-mint">▸</span><span data-i18n="about.v1">Données traçables : chaque chiffre a sa source</span></li>
+            <li><span class="c-mint">▸</span><span data-i18n="about.v2">Architecture propre en couches, code testé</span></li>
+            <li><span class="c-mint">▸</span><span data-i18n="about.v3">Pensé pour l'utilisateur réel : mobile, RTL, multilingue</span></li>
+          </ul>
+        </div>
+
+        <div class="tile b-hack glow reveal">
+          <div class="ring">
+            <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" class="ring-bg" /><circle cx="60" cy="60" r="52" class="ring-fg" /></svg>
+            <div class="ring-txt"><b>Top 16</b><span>/ 117</span></div>
+          </div>
+          <div>
+            <p class="label mono">~/hackathon</p>
+            <p class="tile-title">Kizuna 絆 · 🇹🇳 × 🇯🇵</p>
+            <p class="tile-sub" data-i18n="hack.sub">Top 14 % des équipes avec TuniNō</p>
+          </div>
+        </div>
+
+        <div class="tile b-certs glow reveal">
+          <p class="label mono">~/certs</p>
+          <b class="big"><span data-count="3">0</span></b>
+          <p class="tile-sub" data-i18n="certs.sub">certifications Cisco Networking Academy</p>
+          <div class="mini-badges"><span>CCNA ITN</span><span>Cyber</span><span>AI</span></div>
+        </div>
+
+        <div class="tile b-focus glow reveal">
+          <p class="label mono">~/focus</p>
+          <div class="focus">
+            <div><span class="f-ico">🛡️</span><b data-i18n="focus.sec">Sécurité</b><small data-i18n="focus.sec.d">Auth, RBAC, audit, TLS</small></div>
+            <div><span class="f-ico">☁️</span><b data-i18n="focus.cloud">Cloud & DevOps</b><small data-i18n="focus.cloud.d">Docker, CI/CD, hosting</small></div>
+            <div><span class="f-ico">🌐</span><b data-i18n="focus.net">Réseaux</b><small data-i18n="focus.net.d">Cisco IOS, IPv4/IPv6</small></div>
+            <div><span class="f-ico">⚙️</span><b>Full-Stack & IA</b><small data-i18n="focus.dev.d">API, React, ML</small></div>
+          </div>
+        </div>
+
+        <div class="tile b-loc glow reveal">
+          <p class="label mono">~/location</p>
+          <p class="tile-title">Tunis, Tunisie 🇹🇳</p>
+          <p class="clock mono" id="clock">--:--:--</p>
+          <p class="tile-sub" data-i18n="loc.sub">heure locale</p>
+        </div>
+
+        <div class="tile b-lang glow reveal">
+          <p class="label mono">~/langues</p>
+          <ul class="langs">
+            <li><span lang="ar">العربية</span></li>
+            <li>Français</li>
+            <li>English</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <!-- PROJECTS -->
     <section id="projects" class="section">
-      <h2 class="title reveal"><span class="num">02</span><span data-i18n="projects.title">Projets</span></h2>
+      <header class="sec-head reveal"><span class="sec-num mono">02</span><h2 data-i18n="projects.title">Projets</h2><span class="sec-line"></span></header>
 
-      <article class="feature reveal">
-        <div class="feature-head">
-          <span class="tag-hot" data-i18n="p1.tag">Hackathon Kizuna · Tunisie 🇹🇳 × Japon 🇯🇵</span>
-          <span class="tag-award">🏆 <span data-i18n="p1.award">Top 16 sur 117 équipes</span></span>
+      <article class="feat glow reveal">
+        <div class="feat-info">
+          <div class="pills">
+            <span class="pill pill-mint" data-i18n="p1.tag">Hackathon Kizuna · 🇹🇳 × 🇯🇵</span>
+            <span class="pill pill-gold">🏆 <span data-i18n="p1.award">Top 16 sur 117 équipes</span></span>
+          </div>
           <h3>TuniNō <span class="jp">チュニ農</span></h3>
           <p class="tagline" data-i18n="p1.tagline">Deux nations, une vision : l'agriculture durable.</p>
-        </div>
-        <div class="feature-body">
-          <div>
-            <p data-i18n="p1.desc">Plateforme de planification agricole inspirée de WAGRI (Japon), pour deux publics. Le <b>Ministère de l'Agriculture</b> suit le bilan national, planifie la production par culture, gouvernorat et saison, et simule des scénarios. L'<b>agriculteur</b> importe ou dessine son terrain, puis le moteur <b>AgroBrain</b> le découpe en parcelles optimisées.</p>
-            <ul class="bullets">
-              <li data-i18n="p1.b1">Lecture de plans par vision par ordinateur (OpenCV, OCR ONNX)</li>
-              <li data-i18n="p1.b2">Optimisation des cultures avec OR-Tools, irrigation FAO-56 planifiée par CP-SAT</li>
-              <li data-i18n="p1.b3">Prévisions XGBoost / LightGBM avec backtest, données FAOSTAT, World Bank, NASA POWER</li>
-              <li data-i18n="p1.b4">Dimensionnement solaire et batterie, chambre froide de contre-saison simulée heure par heure</li>
-              <li data-i18n="p1.b5">Interface bilingue Français / derja tunisienne (RTL), PostGIS, Docker</li>
-            </ul>
-            <div class="chips">
-              <span>Python</span><span>FastAPI</span><span>React 18</span><span>TypeScript</span><span>Tailwind</span><span>Leaflet</span><span>OR-Tools</span><span>XGBoost</span><span>OpenCV</span><span>PostGIS</span><span>Docker</span>
-            </div>
-            <div class="links">
-              <a href="https://github.com/merhbben/hackathon-kizuna" target="_blank" rel="noopener" class="link" data-i18n="common.code">Code source →</a>
-            </div>
+          <p data-i18n="p1.desc">Plateforme de planification agricole inspirée de WAGRI (Japon), pour deux publics. Le <b>Ministère de l'Agriculture</b> suit le bilan national, planifie la production par culture, gouvernorat et saison, et simule des scénarios. L'<b>agriculteur</b> importe ou dessine son terrain, puis le moteur <b>AgroBrain</b> le découpe en parcelles optimisées.</p>
+          <ul class="bullets">
+            <li data-i18n="p1.b1">Lecture de plans par vision par ordinateur (OpenCV, OCR ONNX)</li>
+            <li data-i18n="p1.b2">Optimisation des cultures avec OR-Tools, irrigation FAO-56 planifiée par CP-SAT</li>
+            <li data-i18n="p1.b3">Prévisions XGBoost / LightGBM avec backtest, données FAOSTAT, World Bank, NASA POWER</li>
+            <li data-i18n="p1.b4">Dimensionnement solaire et batterie, chambre froide de contre-saison simulée heure par heure</li>
+            <li data-i18n="p1.b5">Auth JWT + bcrypt, interface FR / derja tunisienne (RTL), PostGIS, Docker</li>
+          </ul>
+          <div class="chips">
+            <span>Python</span><span>FastAPI</span><span>React 18</span><span>TypeScript</span><span>Tailwind</span><span>Leaflet</span><span>OR-Tools</span><span>XGBoost</span><span>OpenCV</span><span>PostGIS</span><span>Docker</span>
           </div>
-          <div class="flow" aria-hidden="true">
-            <div class="flow-step"><b>1</b><span data-i18n="flow.1">Terrain</span></div>
-            <div class="flow-arrow"></div>
-            <div class="flow-step"><b>2</b><span data-i18n="flow.2">Climat & sol</span></div>
-            <div class="flow-arrow"></div>
-            <div class="flow-step glow"><b>3</b><span>AgroBrain</span></div>
-            <div class="flow-arrow"></div>
-            <div class="flow-step"><b>4</b><span data-i18n="flow.4">Plan optimisé</span></div>
-            <div class="parcels">
-              <i style="--c:#22c55e">A</i><i style="--c:#eab308">B</i><i style="--c:#06b6d4">C</i><i style="--c:#f97316">D</i>
+          <div class="links"><a href="https://github.com/merhbben/hackathon-kizuna" target="_blank" rel="noopener" class="link" data-i18n="common.code">Code source →</a></div>
+        </div>
+
+        <div class="feat-visual">
+          <div class="browser">
+            <div class="browser-bar"><i></i><i></i><i></i><span class="mono">tunino · AgroBrain</span></div>
+            <div class="field-wrap">
+              <svg viewBox="0 0 410 270" class="field" role="img" aria-label="Terrain découpé en parcelles A, B, C, D par AgroBrain">
+                <defs>
+                  <pattern id="rows" width="10" height="10" patternUnits="userSpaceOnUse" patternTransform="rotate(-8)"><line x1="0" y1="0" x2="0" y2="10" stroke="rgba(255,255,255,.18)" stroke-width="1"/></pattern>
+                </defs>
+                <g class="parcels">
+                  <polygon class="pc pa" points="30,40 195,30 195,140 40,140" />
+                  <polygon class="pc pb" points="195,30 360,20 370,125 195,125" />
+                  <polygon class="pc pc3" points="40,140 195,140 195,238 50,245" />
+                  <polygon class="pc pd" points="195,125 370,125 380,230 195,238" />
+                </g>
+                <g class="rows-overlay">
+                  <polygon points="30,40 195,30 195,140 40,140" fill="url(#rows)" />
+                  <polygon points="195,30 360,20 370,125 195,125" fill="url(#rows)" />
+                  <polygon points="40,140 195,140 195,238 50,245" fill="url(#rows)" />
+                  <polygon points="195,125 370,125 380,230 195,238" fill="url(#rows)" />
+                </g>
+                <polygon class="outline" points="30,40 360,20 380,230 50,245" />
+                <g class="pipes">
+                  <path d="M60 90 H175" /><path d="M215 72 H350" /><path d="M65 190 H180" /><path d="M215 180 H360" />
+                </g>
+                <g class="labels mono">
+                  <text x="112" y="80">A</text><text x="280" y="70">B</text><text x="118" y="184">C</text><text x="287" y="172">D</text>
+                </g>
+                <line class="sweep" x1="0" y1="0" x2="0" y2="270" />
+              </svg>
+            </div>
+            <div class="pipeline mono">
+              <span data-i18n="flow.1">Terrain</span><i>→</i><span data-i18n="flow.2">Climat & sol</span><i>→</i><span class="hot">AgroBrain</span><i>→</i><span data-i18n="flow.4">Plan optimisé</span>
             </div>
           </div>
         </div>
       </article>
 
-      <div class="grid">
-        <article class="card reveal">
-          <div class="card-icon">🍰</div>
-          <h3>EnjoySweets</h3>
-          <p data-i18n="p2.desc">Application de gestion de pâtisserie en Flutter, sécurisée avec Firebase Auth et Firestore. Elle est en production sur Firebase Hosting, avec CI/CD GitHub Actions et une stratégie de cache maîtrisée.</p>
-          <div class="chips"><span>Flutter</span><span>Dart</span><span>Firebase</span><span>Firestore</span><span>GitHub Actions</span></div>
-          <div class="links">
-            <a href="https://github.com/merhbben/EnjoySweets" target="_blank" rel="noopener" class="link" data-i18n="common.code">Code source →</a>
-            <a href="https://enjoy-34564.web.app" target="_blank" rel="noopener" class="link" data-i18n="common.live">Démo live ↗</a>
+      <div class="proj-grid">
+        <article class="proj glow tilt reveal">
+          <div class="proj-art art-a"><span class="proj-ico">🍰</span><span class="badge-live mono"><i></i>LIVE</span></div>
+          <div class="proj-body">
+            <h3>EnjoySweets</h3>
+            <p data-i18n="p2.desc">Application de gestion de pâtisserie en Flutter, sécurisée avec Firebase Auth et des règles Firestore versionnées. En production sur Firebase Hosting, avec CI/CD GitHub Actions et une stratégie de cache maîtrisée.</p>
+            <div class="chips"><span>Flutter</span><span>Dart</span><span>Firebase</span><span>Firestore Rules</span><span>GitHub Actions</span></div>
+            <div class="links">
+              <a href="https://github.com/merhbben/EnjoySweets" target="_blank" rel="noopener" class="link" data-i18n="common.code">Code source →</a>
+              <a href="https://enjoy-34564.web.app" target="_blank" rel="noopener" class="link" data-i18n="common.live">Démo live ↗</a>
+            </div>
           </div>
         </article>
 
-        <article class="card reveal">
-          <div class="card-icon">📊</div>
-          <h3>LA-PAIX</h3>
-          <p data-i18n="p3.desc">Application Laravel de contrôle des consommations pour restaurants, hôtels et bars : fiches techniques versionnées, stocks et inventaires, calcul des écarts théorique / réel, tableaux de bord KPI, audit et rôles.</p>
-          <div class="chips"><span>PHP 8.4</span><span>Laravel 13</span><span>MySQL</span><span>Bootstrap</span><span>Chart.js</span><span>PHPUnit</span></div>
-          <div class="links"><a href="https://github.com/merhbben/LA-PAIX" target="_blank" rel="noopener" class="link" data-i18n="common.code">Code source →</a></div>
+        <article class="proj glow tilt reveal">
+          <div class="proj-art art-b"><span class="proj-ico">📊</span></div>
+          <div class="proj-body">
+            <h3>LA-PAIX</h3>
+            <p data-i18n="p3.desc">Application Laravel de contrôle des consommations pour restaurants, hôtels et bars : fiches techniques versionnées, stocks et inventaires, écarts théorique / réel, tableaux de bord KPI, journal d'audit et gestion des rôles.</p>
+            <div class="chips"><span>PHP 8.4</span><span>Laravel 13</span><span>Fortify</span><span>MySQL</span><span>Chart.js</span><span>PHPUnit</span></div>
+            <div class="links"><a href="https://github.com/merhbben/LA-PAIX" target="_blank" rel="noopener" class="link" data-i18n="common.code">Code source →</a></div>
+          </div>
         </article>
 
-        <article class="card reveal">
-          <div class="card-icon">🚗</div>
-          <h3>AutoLoc</h3>
-          <p data-i18n="p4.desc">Backend de location de véhicules multi-agences : réservations, contrats, paiements, maintenance. Architecture en couches Controller → Service → Repository, API REST testées avec Postman.</p>
-          <div class="chips"><span>Java 17</span><span>Spring Boot</span><span>JPA / Hibernate</span><span>MySQL</span><span>Maven</span><span>SonarQube</span></div>
-          <div class="links"><a href="https://github.com/merhbben/autoloc" target="_blank" rel="noopener" class="link" data-i18n="common.code">Code source →</a></div>
+        <article class="proj glow tilt reveal">
+          <div class="proj-art art-c"><span class="proj-ico">🚗</span></div>
+          <div class="proj-body">
+            <h3>AutoLoc</h3>
+            <p data-i18n="p4.desc">Backend de location de véhicules multi-agences : réservations, contrats, paiements, maintenance. Architecture en couches Controller → Service → Repository, API REST testées avec Postman, qualité suivie avec SonarQube.</p>
+            <div class="chips"><span>Java 17</span><span>Spring Boot</span><span>JPA / Hibernate</span><span>MySQL</span><span>Maven</span><span>SonarQube</span></div>
+            <div class="links"><a href="https://github.com/merhbben/autoloc" target="_blank" rel="noopener" class="link" data-i18n="common.code">Code source →</a></div>
+          </div>
         </article>
       </div>
     </section>
 
     <!-- SKILLS -->
     <section id="skills" class="section">
-      <h2 class="title reveal"><span class="num">03</span><span data-i18n="skills.title">Compétences</span></h2>
-      <div class="skills">
-        <div class="skill skill-hl reveal">
-          <h4 data-i18n="skills.sec">Sécurité</h4>
-          <div class="chips"><span>Auth JWT</span><span>Hachage bcrypt</span><span>RBAC / rôles</span><span>Journal d'audit</span><span>Règles Firestore</span><span>TLS</span><span>Gestion des secrets</span></div>
+      <header class="sec-head reveal"><span class="sec-num mono">03</span><h2 data-i18n="skills.title">Compétences</h2><span class="sec-line"></span></header>
+      <div class="mods">
+        <div class="mod mod-hl glow reveal">
+          <p class="mod-head mono"><span class="c-mint">~/</span><span data-i18n="skills.sec">sécurité</span></p>
+          <div class="chips"><span>Auth JWT</span><span>Hachage bcrypt</span><span>RBAC / rôles</span><span>Journal d'audit</span><span>Règles Firestore</span><span>TLS</span><span data-i18n="sk.secrets">Gestion des secrets</span></div>
         </div>
-        <div class="skill skill-hl reveal">
-          <h4 data-i18n="skills.cloud">Cloud & DevOps</h4>
-          <div class="chips"><span>Docker / Compose</span><span>Firebase Hosting</span><span>GitHub Actions CI/CD</span><span>GitHub Pages</span><span>PostgreSQL / PostGIS</span><span>Linux</span></div>
+        <div class="mod mod-hl glow reveal">
+          <p class="mod-head mono"><span class="c-mint">~/</span>cloud-devops</p>
+          <div class="chips"><span>Docker / Compose</span><span>GitHub Actions</span><span>Firebase Hosting</span><span>GitHub Pages</span><span>Linux</span><span>Alembic</span></div>
         </div>
-        <div class="skill reveal">
-          <h4 data-i18n="skills.front">Frontend</h4>
-          <div class="chips"><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Vite</span><span>Recharts</span><span>Leaflet</span><span>i18n / RTL</span><span>Blade</span></div>
+        <div class="mod mod-hl glow reveal">
+          <p class="mod-head mono"><span class="c-mint">~/</span><span data-i18n="skills.net">réseaux</span></p>
+          <div class="chips"><span>Cisco IOS</span><span data-i18n="sk.addr">Adressage IPv4 / IPv6</span><span>OSI / TCP-IP</span><span>Ethernet / switching</span><span data-i18n="sk.route">Routage</span><span data-i18n="sk.trouble">Dépannage réseau</span></div>
         </div>
-        <div class="skill reveal">
-          <h4 data-i18n="skills.back">Backend</h4>
-          <div class="chips"><span>Python / FastAPI</span><span>Java / Spring Boot</span><span>PHP / Laravel</span><span>SQLAlchemy</span><span>JWT</span><span>REST</span></div>
+        <div class="mod glow reveal">
+          <p class="mod-head mono"><span class="c-mint">~/</span>backend</p>
+          <div class="chips"><span>Python / FastAPI</span><span>Java / Spring Boot</span><span>PHP / Laravel</span><span>SQLAlchemy</span><span>REST</span></div>
         </div>
-        <div class="skill reveal">
-          <h4 data-i18n="skills.ai">IA & Data</h4>
-          <div class="chips"><span>scikit-learn</span><span>XGBoost</span><span>LightGBM</span><span>OR-Tools</span><span>OpenCV</span><span>Pandas</span><span>GeoPandas</span></div>
+        <div class="mod glow reveal">
+          <p class="mod-head mono"><span class="c-mint">~/</span>frontend</p>
+          <div class="chips"><span>React</span><span>TypeScript</span><span>Tailwind CSS</span><span>Vite</span><span>Leaflet</span><span>i18n / RTL</span></div>
         </div>
-        <div class="skill reveal">
-          <h4 data-i18n="skills.mobile">Mobile</h4>
-          <div class="chips"><span>Flutter</span><span>Dart</span><span>Firebase</span><span>Firestore</span></div>
+        <div class="mod glow reveal">
+          <p class="mod-head mono"><span class="c-mint">~/</span><span data-i18n="skills.ai">ia-data</span></p>
+          <div class="chips"><span>scikit-learn</span><span>XGBoost</span><span>LightGBM</span><span>OR-Tools</span><span>OpenCV</span><span>Pandas</span></div>
         </div>
-        <div class="skill reveal">
-          <h4 data-i18n="skills.db">Bases de données</h4>
+        <div class="mod glow reveal">
+          <p class="mod-head mono"><span class="c-mint">~/</span>mobile</p>
+          <div class="chips"><span>Flutter</span><span>Dart</span><span>Firebase Auth</span><span>Firestore</span></div>
+        </div>
+        <div class="mod glow reveal">
+          <p class="mod-head mono"><span class="c-mint">~/</span><span data-i18n="skills.db">bases-de-donnees</span></p>
           <div class="chips"><span>PostgreSQL / PostGIS</span><span>MySQL</span><span>SQLite</span><span>Firestore</span></div>
-        </div>
-        <div class="skill reveal">
-          <h4 data-i18n="skills.devops">DevOps & outils</h4>
-          <div class="chips"><span>Docker</span><span>GitHub Actions</span><span>Git</span><span>Alembic</span><span>Pytest</span><span>Postman</span></div>
         </div>
       </div>
     </section>
 
     <!-- CERTIFICATIONS -->
     <section id="certs" class="section">
-      <h2 class="title reveal"><span class="num">04</span><span data-i18n="certs.title">Certifications</span></h2>
+      <header class="sec-head reveal"><span class="sec-num mono">04</span><h2 data-i18n="certs.title">Certifications</h2><span class="sec-line"></span></header>
       <div class="certs">
-        <article class="cert reveal" data-full="assets/cert-ccna-itn.jpg">
-          <div class="cert-img"><img src="assets/cert-ccna-itn.jpg" alt="Certificat Cisco CCNA: Introduction to Networks" loading="lazy" /><span class="zoom-hint">🔍</span></div>
+        <article class="cert glow tilt reveal" data-full="assets/cert-ccna-itn.jpg" tabindex="0">
+          <div class="cert-img"><img src="assets/cert-ccna-itn.jpg" alt="Certificat Cisco CCNA: Introduction to Networks" loading="lazy" /><span class="verified mono">✓ <span data-i18n="cert.verified">Vérifié</span></span><span class="zoom-hint">⤢</span></div>
           <div class="cert-body">
-            <span class="issuer">Cisco Networking Academy</span>
+            <span class="issuer mono">Cisco Networking Academy</span>
             <h4>CCNA: Introduction to Networks</h4>
             <p data-i18n="c1.d">Configuration de switchs et routeurs, adressage IPv4 / IPv6, modèle OSI, sécurisation et dépannage d'un petit réseau.</p>
-            <time data-i18n="c1.date">Novembre 2026</time>
+            <time class="mono" data-i18n="c1.date">Novembre 2026</time>
           </div>
         </article>
-        <article class="cert reveal" data-full="assets/cert-intro-cybersecurity.jpg">
-          <div class="cert-img"><img src="assets/cert-intro-cybersecurity.jpg" alt="Certificat Cisco Introduction to Cybersecurity" loading="lazy" /><span class="zoom-hint">🔍</span></div>
+        <article class="cert glow tilt reveal" data-full="assets/cert-intro-cybersecurity.jpg" tabindex="0">
+          <div class="cert-img"><img src="assets/cert-intro-cybersecurity.jpg" alt="Certificat Cisco Introduction to Cybersecurity" loading="lazy" /><span class="verified mono">✓ <span data-i18n="cert.verified">Vérifié</span></span><span class="zoom-hint">⤢</span></div>
           <div class="cert-body">
-            <span class="issuer">Cisco Networking Academy</span>
+            <span class="issuer mono">Cisco Networking Academy</span>
             <h4>Introduction to Cybersecurity</h4>
             <p data-i18n="c2.d">Menaces, attaques et vulnérabilités courantes, protection des personnes et des organisations.</p>
-            <time data-i18n="c2.date">Septembre 2026</time>
+            <time class="mono" data-i18n="c2.date">Septembre 2026</time>
           </div>
         </article>
-        <article class="cert reveal" data-full="assets/cert-ai-power-user.jpg">
-          <div class="cert-img"><img src="assets/cert-ai-power-user.jpg" alt="Certificat Cisco AI Power User Launchpad" loading="lazy" /><span class="zoom-hint">🔍</span></div>
+        <article class="cert glow tilt reveal" data-full="assets/cert-ai-power-user.jpg" tabindex="0">
+          <div class="cert-img"><img src="assets/cert-ai-power-user.jpg" alt="Certificat Cisco AI Power User Launchpad" loading="lazy" /><span class="verified mono">✓ <span data-i18n="cert.verified">Vérifié</span></span><span class="zoom-hint">⤢</span></div>
           <div class="cert-body">
-            <span class="issuer">Cisco Networking Academy</span>
+            <span class="issuer mono">Cisco Networking Academy</span>
             <h4>AI Power User Launchpad</h4>
             <p data-i18n="c3.d">Adoption de l'IA en entreprise : projet pilote, ROI, IA responsable, classification des données et gouvernance.</p>
-            <time data-i18n="c3.date">Novembre 2026</time>
+            <time class="mono" data-i18n="c3.date">Novembre 2026</time>
           </div>
         </article>
       </div>
     </section>
 
-    <div class="lightbox" id="lightbox" hidden><img alt="" /><button aria-label="Fermer">✕</button></div>
-
     <!-- JOURNEY -->
     <section id="journey" class="section">
-      <h2 class="title reveal"><span class="num">05</span><span data-i18n="journey.title">Parcours</span></h2>
-      <ol class="timeline">
+      <header class="sec-head reveal"><span class="sec-num mono">05</span><h2 data-i18n="journey.title">Parcours</h2><span class="sec-line"></span></header>
+      <ol class="timeline" id="timeline">
         <li class="reveal">
-          <time>2026</time>
+          <time class="mono">Nov 2026</time>
           <h4 data-i18n="j1.t">Hackathon Kizuna (絆) Tunisie × Japon : Top 16 / 117 équipes</h4>
-          <p data-i18n="j1.d">Classé dans le Top 16 parmi 117 équipes avec TuniNō, une plateforme d'agriculture durable pour le ministère et les agriculteurs.</p>
+          <p data-i18n="j1.d">Conception et développement de TuniNō, une plateforme d'agriculture durable pour le ministère et les agriculteurs.</p>
         </li>
         <li class="reveal">
-          <time>2026</time>
+          <time class="mono">Sep – Nov 2026</time>
+          <h4 data-i18n="j4.t">Certifications Cisco Networking Academy</h4>
+          <p data-i18n="j4.d">Introduction to Cybersecurity, CCNA: Introduction to Networks, AI Power User Launchpad.</p>
+        </li>
+        <li class="reveal">
+          <time class="mono">2026</time>
           <h4 data-i18n="j2.t">Projets académiques et professionnels</h4>
           <p data-i18n="j2.d">AutoLoc (Spring Boot, module ASI), LA-PAIX (Laravel), EnjoySweets (Flutter, déployé en production).</p>
         </li>
         <li class="reveal">
-          <time data-i18n="j3.time">En cours</time>
+          <time class="mono" data-i18n="j3.time">En cours</time>
           <h4 data-i18n="j3.t">Cycle ingénieur, Cybersécurité & Cloud Engineering, ESPRIT</h4>
           <p data-i18n="j3.d">École Supérieure Privée d'Ingénierie et de Technologies, Tunis.</p>
         </li>
-        <!-- TODO : ajoute ici tes expériences / stages depuis LinkedIn -->
       </ol>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section contact reveal">
-      <h2 data-i18n="contact.title">Travaillons ensemble</h2>
-      <p data-i18n="contact.text">Je recherche un stage ou un premier poste en cybersécurité, en cloud engineering ou en développement sécurisé. Parlons de votre projet.</p>
-      <div class="cta center">
-        <!-- TODO : remplace par ton adresse e-mail -->
-        <a class="btn" href="mailto:TON_EMAIL@exemple.com" data-i18n="contact.mail">M'écrire un e-mail</a>
-        <a class="btn btn-ghost" href="https://www.linkedin.com/in/merhbene-mohamed-a8b956332/" target="_blank" rel="noopener">LinkedIn</a>
-        <a class="btn btn-ghost" href="https://github.com/merhbben" target="_blank" rel="noopener">GitHub</a>
+    <section id="contact" class="section">
+      <div class="contact glow reveal">
+        <p class="mono c-mint contact-cmd">$ ./contact.sh --open</p>
+        <h2 data-i18n="contact.title">Construisons quelque chose de <span class="grad">sûr</span>.</h2>
+        <p data-i18n="contact.text">Je recherche un stage ou un premier poste en cybersécurité, en cloud engineering ou en développement sécurisé. Parlons de votre projet.</p>
+        <div class="cta center">
+          <a class="btn magnet" href="https://www.linkedin.com/in/merhbene-mohamed-a8b956332/" target="_blank" rel="noopener" data-i18n="contact.li">Me contacter sur LinkedIn</a>
+          <a class="btn btn-ghost magnet" href="#" data-email hidden data-i18n="contact.mail">M'écrire un e-mail</a>
+          <a class="btn btn-ghost magnet" href="https://github.com/merhbben" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-ghost magnet" href="cv.pdf" target="_blank" rel="noopener" data-cv hidden data-i18n="hero.cv">Mon CV</a>
+        </div>
       </div>
     </section>
   </main>
 
-  <footer class="footer">
-    <p>© <span id="year"></span> Mohamed Merhbene · <span data-i18n="footer">Fait avec soin, en Tunisie.</span></p>
+  <footer class="footer mono">
+    <span>© <span id="year"></span> Mohamed Merhbene</span>
+    <span data-i18n="footer">Conçu et développé en Tunisie</span>
+    <span><kbd>⌘K</kbd> <span data-i18n="footer.k">pour naviguer</span></span>
   </footer>
+
+  <!-- Palette de commandes -->
+  <div class="cmdk" id="cmdk" hidden>
+    <div class="cmdk-box" role="dialog" aria-modal="true" aria-label="Palette de commandes">
+      <div class="cmdk-in"><span class="c-mint mono">❯</span><input id="cmdkIn" data-i18n-ph="cmdk.ph" placeholder="Aller à… (projets, certifications, GitHub…)" /></div>
+      <ul id="cmdkList" role="listbox"></ul>
+      <div class="cmdk-foot mono" data-i18n="cmdk.foot">↑↓ naviguer · ↵ ouvrir · esc fermer</div>
+    </div>
+  </div>
+
+  <!-- Agrandissement des certificats -->
+  <div class="lightbox" id="lightbox" hidden><img alt="" /><button aria-label="Fermer">✕</button></div>
 
   <script src="script.js"></script>
 </body>
