@@ -383,3 +383,5 @@ h1 .line:nth-child(2) > span { animation-delay: 1.45s; }
 .avatar { object-position: center 30%; }
 @media (max-width: 960px) { .certs { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 680px) { .certs { grid-template-columns: 1fr; } }
+
+[hidden] { display: none !important; }
